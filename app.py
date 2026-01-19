@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from .routers  import departement ,formation,etudiant ,module,lieu_examen , professeurs,inscription,examen
-from .database import engine 
+from routers  import departement ,formation,etudiant ,module,lieu_examen , professeurs,inscription,examen
+from database import engine 
 from . import models
 app = FastAPI()
 
