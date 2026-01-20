@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from typing import List
 from .. import models
 from .. import schemas , database
-from ..controllers import exam
+from ..controllers import exam 
 router = APIRouter(tags =['examens'],prefix='/examens')
 from datetime import datetime, timedelta
+
 
 from datetime import datetime, timedelta
 
@@ -40,7 +40,7 @@ def generate_all_time_slots(start_date: str, days_count: int):
 @router.post('/')
 def get_examen(db:Session = Depends(database.get_db)):
     all_time_slots = generate_all_time_slots("2026-01-03", 20)
-    return exam.generate_schedule(all_time_slots , db)
+    return exam.generate_smart_exam_schedule(db,"2026-01-03")
 
 @router.get('/')
 def get_all_examens(db:Session = Depends(database.get_db)):
